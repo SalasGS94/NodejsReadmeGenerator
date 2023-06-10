@@ -1,7 +1,20 @@
 class MarkDown {
+
+  static renderLicBadge(license){
+    const badges = {
+      MIT: '[![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)',
+      APACHE_2: '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)',
+      GPL_3: '[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)',
+      BSD_3: '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)'
+    }
+    return badges[license]
+  }
+
   static generateReadme(answers){
     return `
 # ${answers.username}
+
+${this.renderLicBadge(answers.license)}
 
 ## Description
 ${answers.description}
@@ -9,38 +22,25 @@ ${answers.description}
 ## Table of Content
 * [Installation](#Installation)
 * [Contributing](#Contributing)
+* [Tests](#Tests)
 * [Questions](#Questions)
 * [License](#License)
 
 ## Installation
+To install necessary dependencies, run the following command:
 ${answers.commandInstall}
 
 ## Contributing
 ${answers.contributingInfo}
 
+## Tests
+To run tests, run the following command: 
+${answers.commandTest}
+
 ## Questions
-${answers.email}
+If you have any questions about the repo, open an issue or contact me directly at ${answers.email}. You can find more of my work at ${answers.username}
     `
   }
-}
-
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-
-`;
 }
 
 module.exports = MarkDown;
