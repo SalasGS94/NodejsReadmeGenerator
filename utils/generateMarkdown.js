@@ -1,3 +1,29 @@
+class MarkDown {
+  static generateReadme(answers){
+    return `
+# ${answers.username}
+
+## Description
+${answers.description}
+
+## Table of Content
+* [Installation](#Installation)
+* [Contributing](#Contributing)
+* [Questions](#Questions)
+* [License](#License)
+
+## Installation
+${answers.commandInstall}
+
+## Contributing
+${answers.contributingInfo}
+
+## Questions
+${answers.email}
+    `
+  }
+}
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {}
@@ -17,4 +43,4 @@ function generateMarkdown(data) {
 `;
 }
 
-module.exports = generateMarkdown;
+module.exports = MarkDown;
